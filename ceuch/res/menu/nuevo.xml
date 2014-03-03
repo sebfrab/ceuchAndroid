@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@+id/action_ingresar" android:title="Ingresar" android:showAsAction="ifRoom" android:orderInCategory="1"></item>
+    <item android:id="@+id/action_logout_nuevo" android:title="Cerrar Sesión" android:orderInCategory="2"></item>
+    
+
+</menu>
