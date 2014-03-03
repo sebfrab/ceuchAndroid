@@ -83,6 +83,7 @@ public class CompromisosNuevo extends Activity {
 		PersistentCookieStore myCookieStore = new PersistentCookieStore(this);
 		client.setCookieStore(myCookieStore);
 		
+		
 		RequestParams rp = new RequestParams();
 		rp.put("Compromiso_titulo", txtTitulo.getText().toString());
 		rp.put("Compromiso_cuerpo", txtCuerpo.getText().toString());
