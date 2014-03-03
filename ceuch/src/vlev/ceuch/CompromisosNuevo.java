@@ -14,8 +14,8 @@ import com.loopj.android.http.RequestParams;
 import android.os.Bundle;
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
@@ -25,6 +25,7 @@ public class CompromisosNuevo extends Activity {
 	private EditText txtTitulo;
 	private EditText txtFecha;
 	private EditText txtCuerpo;
+	private ProgressDialog pd;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +68,17 @@ public class CompromisosNuevo extends Activity {
 	
 	public void ingresar(){
 		
+		pd = new ProgressDialog(CompromisosNuevo.this);
+		pd.setTitle("Procesando...");
+		pd.setMessage("Por favor espere.");
+		pd.setCancelable(false);
+		pd.setIndeterminate(true);
+		pd.show();
+		
+		txtTitulo.setEnabled(false);
+		txtCuerpo.setEnabled(false);
+		txtFecha.setEnabled(false);
+		
 		AsyncHttpClient client = new AsyncHttpClient();
 		PersistentCookieStore myCookieStore = new PersistentCookieStore(this);
 		client.setCookieStore(myCookieStore);
@@ -77,7 +89,8 @@ public class CompromisosNuevo extends Activity {
 		rp.put("Comrpomiso_fecha", txtFecha.getText().toString());
 		
 		client.post(Constants.URL_SERVER+"compromisos/createAndroid",rp, new JsonHttpResponseHandler(){
-			 @Override
+						
+			@Override
 			 public void onSuccess(JSONObject jObject){    
 				 try {
 					boolean result = jObject.getBoolean("response");
@@ -94,10 +107,18 @@ public class CompromisosNuevo extends Activity {
 				}
 			     
 			 }   
+			
 			 @Override
 			 public void onFailure(Throwable arg0){
 				 ToastGenerales.mensaje(getApplicationContext(), "problemas en la conexion", 1);
 			 }
+			 
+			 @Override
+		     public void onFinish() {
+				 if (pd!=null)
+						pd.dismiss();
+
+		     }
 		}); 
 		
 	}

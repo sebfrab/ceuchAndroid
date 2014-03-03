@@ -15,8 +15,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="10dp"
-        android:hint="Titulo"
-        android:ems="10" >
+        android:ems="10"
+        android:hint="Titulo" >
 
     </EditText>
 

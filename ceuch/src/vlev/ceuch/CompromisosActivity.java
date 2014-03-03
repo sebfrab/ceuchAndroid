@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
@@ -44,14 +43,16 @@ public class CompromisosActivity extends Activity {
 		ActionBar actionBar = getActionBar();
 	    actionBar.setDisplayHomeAsUpEnabled(true);
 	    
-	    actualizar();
+	    if(savedInstanceState == null){
+	    	actualizar();
+	    }
 	}
 	
 	//Guardar los datos cuando se gire la pantalla
 	@Override
 	public void onSaveInstanceState(Bundle outState){
-		super.onSaveInstanceState(outState);
 		outState.putParcelableArrayList("listCompromisos",listaCompromisos);
+		super.onSaveInstanceState(outState);
 	}
 	
 	//Cargar datos al girar pantalla
@@ -136,7 +137,6 @@ public class CompromisosActivity extends Activity {
 						Compromisos com = new Compromisos(jsonObject.getInt("idcompromisos"), jsonObject.getString("titulo"), jsonObject.getString("cuerpo"), jsonObject.getString("fecha"));
 						listaCompromisos.add(com);
 					}
-					
 					_m_adapter = new AdaptadorCompromisos(CompromisosActivity.this, R.layout.listitem_compromisos, listaCompromisos);
 					ListViewCompromiso.setAdapter(_m_adapter);
 					
