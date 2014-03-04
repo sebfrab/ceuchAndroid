@@ -9,6 +9,6 @@
         <!-- API 14 theme customizations can go here. -->
     </style>
 
-    <style name="FullLogin" parent="android:Theme.Light.NoTitleBar.Fullscreen">
+    <style name="FullLogin" parent="android:Theme.Holo.Light.NoActionBar.Fullscreen">
     </style>
 </resources>
