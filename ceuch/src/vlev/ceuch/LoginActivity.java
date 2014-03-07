@@ -27,8 +27,6 @@ import java.util.List;
 
 public class LoginActivity extends Activity {
 
-	
-
 	/**
 	 * The default email to populate the email field with.
 	 */

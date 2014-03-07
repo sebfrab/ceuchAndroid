@@ -112,6 +112,9 @@ public class CompromisosActivity extends Activity {
 			case R.id.action_eliminar:
 				eliminar(item);
 				return true;
+			case R.id.action_modificar:
+				modificar(item);
+				return true;
 			default:
 			return super.onContextItemSelected(item);
 		}
@@ -200,6 +203,18 @@ public class CompromisosActivity extends Activity {
 			Log.e("ERROR-RESCATE", ex.toString());
 		}
 	}
+	
+	//	Modificar Compromiso
+	public void modificar(MenuItem item){
+		final AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)item.getMenuInfo();
+		final AdaptadorCompromisos comAdap = (AdaptadorCompromisos) ListViewCompromiso.getAdapter();
+		
+		Compromisos com = comAdap.getItem(info.position);
+		Intent intent = new Intent(this, CompromisosNuevo.class);
+		intent.putExtra("compromiso", com);
+		this.startActivityForResult(intent,0);
+	}
+	
 	
 	//	LOGOUT
 	public void logout(){

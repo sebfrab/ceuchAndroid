@@ -51,6 +51,7 @@ public class Compromisos implements Parcelable  {
 	}
 
 	public void set_date(String _date) {
+		_date = Constants.formateDateFromstring("yyyy-MM-dd", "dd-MM-yyyy", _date);
 		this._date = _date;
 	}
 
@@ -62,9 +63,38 @@ public class Compromisos implements Parcelable  {
 
 	@Override
 	public void writeToParcel(Parcel dest, int flags) {
-		// TODO Auto-generated method stub
-		
+		dest.writeStringArray(new String[] {
+			String.valueOf(this._ID),
+			this._title,
+			this._body,
+			this._date
+		});
 	}
 	
-
+	public Compromisos(Parcel in)
+	{
+		String[] data = new String[4];
+		in.readStringArray(data);
+		
+		this.set_ID(Integer.parseInt(data[0]));
+		this.set_title(data[1]);
+		this.set_body(data[2]);
+		this._date = data[3];
+	}
+	
+	//More boilerplate
+	//Failure to add this results in the following exception
+	//"android.os.BadParcelableException: Parcelable protocol 
+	//requires a Parcelable.Creator object called  CREATOR on class"
+	 public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
+	         public Compromisos createFromParcel(Parcel in) {
+	        	 return new Compromisos(in); 
+	         }
+	         public Compromisos[] newArray(int size) {
+	        	 return new Compromisos[size];
+	         }
+	};
+	
+	
+	
 }

@@ -54,15 +54,17 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     }
     public static final class id {
         public static final int action_compromisos=0x7f090012;
-        public static final int action_eliminar=0x7f090019;
+        public static final int action_eliminar=0x7f09001a;
         public static final int action_forgot_password=0x7f09000e;
         public static final int action_ingresar=0x7f090017;
         public static final int action_logout=0x7f090013;
-        public static final int action_logout_mantenedores=0x7f090014;
-        public static final int action_logout_nuevo=0x7f090018;
+        public static final int action_logout_mantenedores=0x7f090016;
+        public static final int action_logout_nuevo=0x7f090019;
+        public static final int action_modificar=0x7f09001b;
+        public static final int action_modificar_form=0x7f090018;
         public static final int action_noticias=0x7f090011;
-        public static final int action_nuevo=0x7f090015;
-        public static final int action_refrescar=0x7f090016;
+        public static final int action_nuevo=0x7f090014;
+        public static final int action_refrescar=0x7f090015;
         public static final int action_settings=0x7f09000f;
         public static final int email=0x7f090007;
         public static final int group_mantenedores=0x7f090010;
