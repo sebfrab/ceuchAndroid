@@ -9,5 +9,10 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_compromisos_nuevo">CompromisosNuevo</string>
+    <string name="lista_modificar">Modificar</string>
+    <string name="lista_eliminar">Eliminar</string>
+    <string name="form_modificar">Modificar</string>
+    <string name="form_ingresar">Ingresar</string>
+    <string name="general_logout">Cerrar Sesión</string>
 
 </resources>
