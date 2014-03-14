@@ -144,13 +144,13 @@ public class CompromisosActivity extends Activity {
 					ListViewCompromiso.setAdapter(_m_adapter);
 					
 				} catch (JSONException ex) {
-					ToastGenerales.mensaje(getApplicationContext(), "problemas en la conexion", 1);
+					ToastGenerales.mensaje(getApplicationContext(), "problemas en la conexion", 0);
 				}
 			     
 			 }   
 			 @Override
 			 public void onFailure(Throwable arg0){
-				 ToastGenerales.mensaje(getApplicationContext(), "problemas en la conexion", 1);
+				 ToastGenerales.mensaje(getApplicationContext(), "problemas en la conexion", 0);
 			 }
 		}); 
 		
@@ -178,19 +178,19 @@ public class CompromisosActivity extends Activity {
 							listaCompromisos.remove(info.position);
 							//comAdap.remove(com);
 							comAdap.notifyDataSetChanged();
-							ToastGenerales.mensaje(getApplicationContext(), "compromiso eliminado", 1);
+							ToastGenerales.mensaje(getApplicationContext(), "compromiso eliminado", 0);
 				    	}else{
-				    		ToastGenerales.mensaje(getApplicationContext(), "problemas en la conexion", 1);
+				    		ToastGenerales.mensaje(getApplicationContext(), "problemas en la conexion", 0);
 				    	}
 						
 					} catch (JSONException ex) {
-						ToastGenerales.mensaje(getApplicationContext(), "problemas en la conexion", 1);
+						ToastGenerales.mensaje(getApplicationContext(), "problemas en la conexion", 0);
 					}
 				     
 				 }   
 				 @Override
 				 public void onFailure(Throwable arg0){
-					 ToastGenerales.mensaje(getApplicationContext(), "problemas en la conexion", 1);
+					 ToastGenerales.mensaje(getApplicationContext(), "problemas en la conexion", 0);
 				 }
 				 
 				 @Override

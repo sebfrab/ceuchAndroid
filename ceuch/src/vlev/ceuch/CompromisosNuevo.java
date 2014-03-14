@@ -135,18 +135,18 @@ public class CompromisosNuevo extends Activity {
 							finish();
 							startActivity(intent);
 				    	}else{
-				    		ToastGenerales.mensaje(getApplicationContext(), "problemas en la conexion", 1);
+				    		ToastGenerales.mensaje(getApplicationContext(), "problemas en la conexion", 0);
 				    	}
 						
 					} catch (JSONException ex) {
-						ToastGenerales.mensaje(getApplicationContext(), "problemas en la conexion", 1);
+						ToastGenerales.mensaje(getApplicationContext(), "problemas en la conexion", 0);
 					}
 				     
 				 }   
 				
 				 @Override
 				 public void onFailure(Throwable arg0){
-					 ToastGenerales.mensaje(getApplicationContext(), "problemas en la conexion", 1);
+					 ToastGenerales.mensaje(getApplicationContext(), "problemas en la conexion", 0);
 				 }
 				 
 				 @Override
@@ -189,18 +189,18 @@ public class CompromisosNuevo extends Activity {
 						finish();
 						startActivity(intent);
 			    	}else{
-			    		ToastGenerales.mensaje(getApplicationContext(), "problemas en la conexion", 1);
+			    		ToastGenerales.mensaje(getApplicationContext(), "problemas en la conexion", 0);
 			    	}
 					
 				} catch (JSONException ex) {
-					ToastGenerales.mensaje(getApplicationContext(), "problemas en la conexion", 1);
+					ToastGenerales.mensaje(getApplicationContext(), "problemas en la conexion", 0);
 				}
 			     
 			 }   
 			
 			 @Override
 			 public void onFailure(Throwable arg0){
-				 ToastGenerales.mensaje(getApplicationContext(), "problemas en la conexion", 1);
+				 ToastGenerales.mensaje(getApplicationContext(), "problemas en la conexion", 0);
 			 }
 			 
 			 @Override

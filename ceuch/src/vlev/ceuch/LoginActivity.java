@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -152,6 +154,9 @@ public class LoginActivity extends Activity {
 			// form field with an error.
 			focusView.requestFocus();
 		} else {
+			InputMethodManager inputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+	        inputMethodManager.hideSoftInputFromWindow(mEmailView.getWindowToken(), 0);
+	        
 			// Show a progress spinner, and kick off a background task to
 			// perform the user login attempt.
 			mLoginStatusMessageView.setText(R.string.login_progress_signing_in);
@@ -180,13 +185,13 @@ public class LoginActivity extends Activity {
 				    	}
 						
 					} catch (JSONException e) {
-						ToastGenerales.mensaje(getApplicationContext(), "problemas en la conexion", 1);
+						ToastGenerales.mensaje(getApplicationContext(), "problemas en la conexion", 0);
 					}
 				     
 				 }   
 				 @Override
 				 public void onFailure(Throwable arg0){
-					 ToastGenerales.mensaje(getApplicationContext(), "problemas en la conexion", 1);
+					 ToastGenerales.mensaje(getApplicationContext(), "problemas en la conexion", 0);
 				 }
 				 
 				 @Override
